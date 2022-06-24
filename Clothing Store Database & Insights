@@ -1,3 +1,6 @@
+Background:
+This dataset comprises of data from a fictious Designer Clothing Store. 
+
 -- Creating Clothing Store Data Table
 
 CREATE TABLE Clothing_Store_Data
