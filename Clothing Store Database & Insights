@@ -1,0 +1,68 @@
+-- Creating Clothing Store Data Table
+CREATE TABLE Clothing_Store_Data
+(Product_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+Name TEXT,
+Category TEXT,
+Designer TEXT, 
+Price INTEGER,
+Monthly_Units_Sold INTEGER);
+
+-- Inserting Data Into Tables
+INSERT INTO 
+Clothing_Store_Data VALUES (1, 'Louis Shirt', 'Shirts', 'Marcus Fluffy', '200', '50');
+INSERT INTO
+Clothing_Store_Data VALUES (2, 'Dickson Shirt', 'Shirts', 'Sarah Strong', '300', '90');
+INSERT INTO
+Clothing_Store_Data VALUES (3, 'Zera Shirt', 'Shirts', 'Catherine Lux', '550', '150');
+INSERT INTO
+Clothing_Store_Data VALUES (4, 'Kappa Pants', 'Pants', 'Marcus Fluffy', '300', '71');
+INSERT INTO
+Clothing_Store_Data VALUES (5, 'Iota Pants', 'Pants', 'Sarah Strong', '350', '121');
+INSERT INTO
+Clothing_Store_Data VALUES (6, 'Ulta Pants', 'Pants', 'Catherine Lux', '750', '200');
+INSERT INTO
+Clothing_Store_Data VALUES (7, 'Scape Blazer', 'Blazer', 'Marcus Fluffy', '800', '100');
+INSERT INTO
+Clothing_Store_Data VALUES (8, 'Vital Blazer', 'Blazer', 'Sarah Strong', '950', '190');
+INSERT INTO
+Clothing_Store_Data VALUES (9, 'Regen Blazer', 'Blazer', 'Catherine Lux', '1250', '301');
+INSERT INTO
+Clothing_Store_Data VALUES (10, 'Zylo Shoes', 'Shoes', 'Marcus Fluffy', '500', '400');
+INSERT INTO
+Clothing_Store_Data VALUES (11, 'Anta Shoes', 'Shoes', 'Sarah Strong', '600', '200');
+INSERT INTO
+Clothing_Store_Data VALUES (12, 'Ziks Shoes', 'Shoes', 'Catherine Lux', '950', '50');
+INSERT INTO
+Clothing_Store_Data VALUES (13, 'Stril Tie', 'Ties', 'Marcus Fluffy', '90', '400');
+INSERT INTO
+Clothing_Store_Data VALUES (14, 'Fiks Tie', 'Ties', 'Sarah Strong', '110', '90');
+INSERT INTO
+Clothing_Store_Data VALUES (15, 'Poks Tie', 'Ties', 'Catherine Lux', '300', '10');
+
+-- Which designer earned the most revenue in a month?
+
+SELECT Designer, SUM(Price*Monthly_Units_Sold) AS Monthly_Revenue
+FROM Clothing_Store_Data
+GROUP BY Designer
+ORDER BY Monthly_Revenue DESC;
+
+-- Which designer sold the most units in a month?
+
+SELECT Designer, SUM(Monthly_Units_Sold) AS Total_Units_Sold
+From Clothing_Store_Data
+GROUP BY Designer
+ORDER BY Total_Units_Sold DESC;
+
+-- Which was the highest selling category by units?
+
+SELECT Category, SUM(Monthly_Units_Sold) AS Total_Units_Sold
+From Clothing_Store_Data
+GROUP BY Category
+ORDER BY Total_Units_Sold DESC;
+
+--Which was the highest selling category by revenue?
+
+SELECT Category, SUM(Price*Monthly_Units_Sold) AS Monthly_Revenue
+FROM Clothing_Store_Data
+GROUP BY Category
+ORDER BY Monthly_Revenue DESC;
