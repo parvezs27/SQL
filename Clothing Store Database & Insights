@@ -1,4 +1,5 @@
 -- Creating Clothing Store Data Table
+
 CREATE TABLE Clothing_Store_Data
 (Product_ID INTEGER PRIMARY KEY AUTOINCREMENT,
 Name TEXT,
@@ -8,6 +9,7 @@ Price INTEGER,
 Monthly_Units_Sold INTEGER);
 
 -- Inserting Data Into Tables
+
 INSERT INTO 
 Clothing_Store_Data VALUES (1, 'Louis Shirt', 'Shirts', 'Marcus Fluffy', '200', '50');
 INSERT INTO
